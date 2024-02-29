@@ -1,0 +1,12 @@
+:root{
+    --color-background: rgb(26, 22, 24);
+    --color-text: rgb(213, 224, 224);
+    --font-family-common: sans-serif;
+}
+
+* {
+    margin:0; 
+    padding:0;
+    min-width: 0;
+    font-family: var(--font-family-common);
+}
