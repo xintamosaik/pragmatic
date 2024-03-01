@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 </head>
-<body style="background-color: var(--color-background); color: var(--color-text); ">
+
+<body>
+    <style>
+        main {
+            max-width: 1000px;
+            border: 1px solid aquamarine;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+    </style>
     <main>
-        test
+        <p>A classic website is kinda easy. But as soon as you add either a lot of content or features - or even worse -
+            both, it's not. Let's do the easier one first: content. </p>
+        <p>It does not matter that much if it's plain text or nicely laid out articles with images, graphs or syntax
+            highlighted code bits. At some point a single page no longer cuts it. You can install wordpress and be good.
+            But that's too easy, isn't it?</o>
+        <p>Anyway, if you do not use a CMS to handle your output, you have to do it yourself. But how? In the olden days
+            you basically linked a new document. You can still do it, but if you want your navigation on every page,
+            you'd need to add and manage it on every piece. Or you rely on the browser to enable your readers to go back
+            to your main page. That works, too. Kinda.</p>
+        <p>But, it's not nice. Right? Right! RIGHT!!111</p>
+        <p>So, let's make it complicated.</p>
+        <p>There is a couple of ways to do it outside of using a CMS. Your first intuiton might be React and that's
+            pretty good. It brings in quite a lot of complexity, but we can do better. We need backend, too. Next.JS?
+            Why not. The framework(s) you choose might be even worse. And to be fair, using one or two of these or
+            something like Ruby on Rails is probably as complicated as managing the whole LAMP you'd need if you went
+            the classic way. On the other hand you'd not need PHP and Database if you're only serving html.</p>
+        <p>We still want to solve that problem, where we want to have the same navigation on every page, without manually going to every page and copypastaing it. So it would be nice if there was a frame that had the basic document with navigation and the actual content could be switched. And this is means, we either need to use javascript or some backend stuff to amke it work.</p>
+        
+
+
     </main>
     <script src="index.js"></script>
 </body>
+
 </html>
