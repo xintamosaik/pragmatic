@@ -1,28 +1,39 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"html/template"
+	"log"
+	"net/http"
 )
 
-func hello(w http.ResponseWriter, req *http.Request) {
-
-    fmt.Fprintf(w, "hello\n")
-}
-
-func headers(w http.ResponseWriter, req *http.Request) {
-
-    for name, headers := range req.Header {
-        for _, h := range headers {
-            fmt.Fprintf(w, "%v: %v\n", name, h)
-        }
-    }
+type PageData struct {
+	Title   string
+	Heading string
+	Content string
 }
 
 func main() {
+	tmpl := template.Must(template.ParseFiles(
+		"base.html",
+		"head.html",
+		"navigation.html",
+		"main.html",
+	))
 
-    http.HandleFunc("/hello", hello)
-    http.HandleFunc("/headers", headers)
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		data := PageData{
+			Title:   "My Page Title",
+			Heading: "Welcome to My Website",
+			Content: "This is a sample paragraph.",
+		}
+		err := tmpl.ExecuteTemplate(w, "base.html", data)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+		}
+	})
 
-    http.ListenAndServe(":8090", nil)
+	log.Println("Listening on :8091...")
+	if err := http.ListenAndServe(":8091", nil); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 }

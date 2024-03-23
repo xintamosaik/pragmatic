@@ -6,51 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css" />
     <script src="index.js"></script>
-    <script>
-      function fetchDoc(event) {
-        const anchor = event.currentTarget;
-        event.preventDefault();
-
-        console.log(anchor);
-        const docRefered = anchor.href;
-        console.log(docRefered);
-        const myHeaders = new Headers();
-        myHeaders.append("Content-Type", "text/plain");
-        fetch(docRefered)
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (html) {
-            // Initialize the DOM parser
-            const parser = new DOMParser();
-
-            const docParsed = parser.parseFromString(html, "text/html");
-
-            const container = document.createDocumentFragment();
-            const firstLevelChildren = docParsed.body.children
-            const firstLevelLength = firstLevelChildren.length;
-            for ( let i = 0; i < firstLevelLength; i++){
-                const element = firstLevelChildren[i]
-                console.log(typeof element);
-                if (typeof element !== 'object') continue;
-                container.appendChild(element);
-            }
-            
-
-            
-            
-            console.log(container);
-            document.getElementsByTagName("output")[0].appendChild(container);
-          });
-      }
-    </script>
+   
   </head>
 
   <body>
     <header>
       <nav>
-        <a href="one.html" onclick="fetchDoc(event)">one</a>
-        <a href="two.html" onclick="fetchDoc(event)">two</a>
+        <a href="one.html">one</a>
+        <a href="two.html">two</a>
       </nav>
     </header>
     <main>
