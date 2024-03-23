@@ -32,6 +32,10 @@ func main() {
 		}
 	})
 
+    // Serve static files.
+    fs := http.FileServer(http.Dir("dist"))
+    http.Handle("/dist/", http.StripPrefix("/dist/", fs))
+
 	log.Println("Listening on :8091...")
 	if err := http.ListenAndServe(":8091", nil); err != nil {
 		log.Fatalf("Failed to start server: %v", err)

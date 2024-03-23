@@ -1,0 +1,28 @@
+:root {
+    --color-background: rgb(26, 22, 24);
+    --color-text: rgb(213, 224, 224);
+    --font-family-common: sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    font-family: var(--font-family-common);
+}
+
+html {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    max-width: 1000px;
+    width: 1000px;
+    border: 1px solid aquamarine;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
